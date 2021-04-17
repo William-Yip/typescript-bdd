@@ -1,15 +1,5 @@
-interface CacheStore {
-    delete(key: string): void
-}
-
-class LocalSavePurchases {
-    constructor(private readonly cacheStore: CacheStore) {}
-
-    async save(): Promise<void> {
-        this.cacheStore.delete('purchases')
-    }
-
-}
+import { CacheStore } from '@/data/protocols/cache'
+import { LocalSavePurchases } from './local-save-purchases'
 
 class CacheStoreSpy implements CacheStore {
     deleteCallsCount = 0

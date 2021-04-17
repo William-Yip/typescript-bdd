@@ -44,17 +44,10 @@ describe('LocalSavePurchases', () => {
 })
 
 describe('LocalSavePurchases', () => {
-    test('Should delete old cache on sut.save', async () => {
+    test('Should delete old cache on sut.save and with the given key', async () => {
         const { cacheStore, sut } = makeSut()
         await sut.save()
         expect(cacheStore.deleteCallsCount).toBe(1)
-    })
-})
-
-describe('LocalSavePurchases', () => {
-    test('Should delete old cache on sut.save', async () => {
-        const { cacheStore, sut } = makeSut()
-        await sut.save()
         expect(cacheStore.key).toBe('purchases')
     })
 })

@@ -1,8 +1,8 @@
-export interface SavePurchases {
+export default interface SavePurchases {
     save(purchases: Array<SavePurchases.Params>): Promise<void>
 }
 
-namespace SavePurchases {
+export namespace SavePurchases {
     export type Params = {
         id: string
         date: Date

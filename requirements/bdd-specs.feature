@@ -14,7 +14,7 @@ E substituir os dados do cache com os dados mais atuais
 Feature: Cliente offline
 
 Como um cliente offline
-Quero que o sistema me mostra minahs ultimas compras gravadas
+Quero que o sistema me mostra minhas ultimas compras gravadas
 Para eu poder ver minhas despesas mesmo sem ter internet
 
 Scenario: Obeter dados do Cache

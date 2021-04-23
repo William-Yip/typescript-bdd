@@ -42,10 +42,11 @@ test('Should insert new Cache if delete succeeds', async () => {
     expect(cacheStore.insertKey).toBe('purchases')
 })
 
-test('Should insert new Cache if delete succeeds', async () => {
+test('Should throw if delete throws', () => {
     const { cacheStore, sut } = makeSut()
     const purchases = mockPurchases()
     cacheStore.simulateDeleteError()
     const promise = sut.save(purchases)
     expect(cacheStore.actions).toEqual([CacheStoreSpy.Actions.DELETE])
+    expect(promise).rejects.toThrow()
 })

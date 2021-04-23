@@ -39,13 +39,14 @@ test('Should insert new Cache if delete succeeds', async () => {
     const timestamp = new Date()
     const { cacheStore, sut } = makeSut(timestamp)
     const purchases = mockPurchases()
-    await sut.save(purchases)
+    const promise = sut.save(purchases)
     expect(cacheStore.actions).toEqual([CacheStoreSpy.Actions.DELETE, CacheStoreSpy.Actions.INSERT])
     expect(cacheStore.insertKey).toBe('purchases')
     expect(cacheStore.insertValues).toEqual({
         timestamp,
         value: purchases
     })
+    await expect(promise).resolves.toBeFalsy()
 })
 
 test('Should throw if delete throws', () => {
